@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { RouterModule } from '@angular/router'
+import { SharedService } from './services/shared.service'
 @NgModule({
   declarations: [
     SidebarComponent,
@@ -11,6 +12,9 @@ import { RouterModule } from '@angular/router'
   imports: [
     CommonModule,
     RouterModule
+  ],
+  providers: [
+    SharedService
   ],
   exports: [
     SidebarComponent

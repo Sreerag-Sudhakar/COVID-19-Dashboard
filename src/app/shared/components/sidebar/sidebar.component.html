@@ -5,7 +5,7 @@
     <a [routerLink]="['/dashboard/country']" title="Countries" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <i class="fas fa-flag"></i>
     </a>
-    <a [routerLink]="['/dashboard/country']" title="Log out" class="logout-btn">
+    <a (click)="logOut()" title="Log out" class="logout-btn">
         <i class="fas fa-power-off"></i>
-    </a> 
+    </a>
 </div>

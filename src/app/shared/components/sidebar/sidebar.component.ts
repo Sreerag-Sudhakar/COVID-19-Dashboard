@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { SharedService } from '../../services/shared.service';
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sharedService:SharedService, private router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  logOut(): void {
+    this.sharedService.logOut();
+    this.router.navigate(['/auth/login'])
   }
 
 }
