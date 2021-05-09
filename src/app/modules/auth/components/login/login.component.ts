@@ -28,7 +28,10 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
 
     if((this.login.username === this.masterCredentials.username) && (this.login.password === this.masterCredentials.password)){
-      this.router.navigate(['/dashboard'])
+      
+      //If success set a flag in local storage for auth check.
+      window.localStorage.setItem('isLoggedIn', 'true')
+      this.router.navigate(['/dashboard']);
     }
     else{
       this.showError('Incorrect username or password')

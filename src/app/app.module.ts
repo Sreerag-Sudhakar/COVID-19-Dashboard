@@ -3,7 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
-import { SharedModule } from './shared/shared.module'
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
+
+import { AuthGuard } from './core/guards/auth/auth.guard'
+
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -14,9 +18,10 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    CoreModule
   ],
-  providers: [],
+  providers: [ AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
