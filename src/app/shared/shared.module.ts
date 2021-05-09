@@ -2,14 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-
+import { RouterModule } from '@angular/router'
 @NgModule({
   declarations: [
     SidebarComponent,
     PageNotFoundComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     SidebarComponent

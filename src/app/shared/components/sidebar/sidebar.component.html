@@ -1,1 +1,11 @@
-<p>sidebar works!</p>
+<div class="sidenav">
+    <a [routerLink]="['/dashboard']"  title="Dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <i class="fas fa-th-large"></i>
+    </a>
+    <a [routerLink]="['/dashboard/country']" title="Countries" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <i class="fas fa-flag"></i>
+    </a>
+    <a [routerLink]="['/dashboard/country']" title="Log out" class="logout-btn">
+        <i class="fas fa-power-off"></i>
+    </a> 
+</div>
