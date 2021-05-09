@@ -1,1 +1,33 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+
+    <div id="total-stats" class="statistics">
+        <h1 class="title">Total</h1>
+        <div class="row">
+            <div class="col-4">
+                <app-case-card [title]="'Total Cases'" [count]="0"></app-case-card>
+            </div>
+            <div class="col-4">
+                <app-case-card [title]="'Total Deaths'" [count]="1"></app-case-card>
+            </div>
+            <div class="col-4">
+                <app-case-card [title]="'Total Recovered'" [count]="2"></app-case-card>
+            </div>
+        </div>
+    </div>
+
+    <div id="total-stats" class="statistics">
+        <h1 class="title">Today</h1>
+        <div class="row">
+            <div class="col-4">
+                <app-case-card [title]="'Cases'" [count]="3"></app-case-card>
+            </div>
+            <div class="col-4">
+                <app-case-card [title]="'Deaths'" [count]="4"></app-case-card>
+            </div>
+            <div class="col-4">
+                <app-case-card [title]="'Recovered'" [count]="6"></app-case-card>
+            </div>        
+        </div>
+    </div>
+
+</div>

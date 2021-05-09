@@ -7,6 +7,7 @@ import { SummaryComponent } from './components/summary/summary.component';
 import { CountryComponent } from './components/country/country.component';
 import { DashLayoutComponent } from './components/dash-layout/dash-layout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CaseCardComponent } from './components/case-card/case-card.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     SummaryComponent,
     CountryComponent,
     DashLayoutComponent,
-    DashboardComponent
+    DashboardComponent,
+    CaseCardComponent
   ],
   imports: [
     CommonModule,

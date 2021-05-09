@@ -1,0 +1,20 @@
+.case-card {
+    min-height: 200px;
+    border: 1px solid #347deb;
+    border-radius: 20px;
+    color: #347deb;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.case-card .title {
+    font-weight: 200;
+    font-size: 25px;
+}
+
+.case-card .count {
+    font-size: 50px;
+}
