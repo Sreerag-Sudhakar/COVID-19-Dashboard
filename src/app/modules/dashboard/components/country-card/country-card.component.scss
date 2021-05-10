@@ -1,0 +1,49 @@
+app-country-card {
+    margin: 10px;
+}
+.country-card {
+    min-width: 300px;
+    width: 300px;
+    min-height: 300px;
+    height: 100%;
+    border: 1px solid #347deb;
+    border-radius: 20px;
+    color: #347deb;
+    // display: flex;
+    // flex-direction: column;
+    text-align: center;
+    // align-items: center;
+    // justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 25px;
+}
+
+.edit {
+    position: relative;
+}
+.edit-btn {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    /* overflow: auto; */
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color: #347deb;
+    border-radius: 50%;
+    border: 1px solid #347deb;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.country-card .header .row {
+    align-items: center;
+}
+
+.country-card .body {
+    padding: 20px 0;
+}
+
+.country-card .body h3{
+    color: #272727;
+}

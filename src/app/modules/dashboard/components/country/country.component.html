@@ -1,1 +1,33 @@
-<p>country works!</p>
+<div class="country-container">
+    <div class="header">
+        <div class="row">
+            <div class="col-3">
+                <h1 class="title">Country</h1>
+            </div>
+            <div class="col-3">
+                <input type="text" class="form-control" name="search" placeholder="Search">
+            </div>
+            <div class="col-3">
+                <select  class="form-select" name="sort">
+                    <option value="'country_name'">Country Name</option>
+                    <option value="'no_of_cases'">Number of cases</option>
+                    <option value="'no_of_deaths'">Number of deaths</option>
+                    <option value="'no_of_recovered'">Number of recovered</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <div class="pagination">
+                    <span>1 to 30 of 195</span>
+                    <span>
+                        <button class="page-btn prev">&lt;</button>&nbsp;
+                        <button class="page-btn next">&gt;</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="country-cards-wrapper">
+        <app-country-card *ngFor="let country of countries" [country]="country"></app-country-card>
+    </div>
+</div>

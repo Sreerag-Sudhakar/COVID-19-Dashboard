@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  coronaStatisticsUrl: 'https://corona.lmao.ninja/v2/all'
+  coronaStatisticsUrl: 'https://corona.lmao.ninja/v2/all',
+  countryWiseStatisticsUrl : 'https://corona.lmao.ninja/v2/countries'
 };
 
 /*

@@ -1,0 +1,30 @@
+.country-container {
+    // padding: 50px 30px;
+    padding: 40px 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.country-cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 50px 0;
+}
+.country-cards-wrapper .header {
+
+}
+
+.country-cards-wrapper .body {
+    padding: 20px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+h1.title {
+    color: #cccccc;
+    font-size: 30px;
+}

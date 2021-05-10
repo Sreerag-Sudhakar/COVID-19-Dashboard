@@ -9,15 +9,19 @@ import { CountryComponent } from './components/country/country.component';
 import { DashLayoutComponent } from './components/dash-layout/dash-layout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CaseCardComponent } from './components/case-card/case-card.component';
+import { CountryCardComponent } from './components/country-card/country-card.component';
 
-import { DashboardService } from './services/dashboard.service'
+import { DashboardService } from './services/dashboard.service';
+import { CountryService } from './services/country.service';
+
 @NgModule({
   declarations: [
     SummaryComponent,
     CountryComponent,
     DashLayoutComponent,
     DashboardComponent,
-    CaseCardComponent
+    CaseCardComponent,
+    CountryCardComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +30,8 @@ import { DashboardService } from './services/dashboard.service'
     SharedModule
   ],
   providers: [
-    DashboardService
+    DashboardService,
+    CountryService
   ]
 })
 export class DashboardModule { }
