@@ -54,8 +54,8 @@ export class EditCountryComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((param:ParamMap)=>{
-      console.log(param)
       this.selectedCountry = <string>param.get('country')
+      this.loadCountry(this.selectedCountry)
     })
   }
 
@@ -75,9 +75,9 @@ export class EditCountryComponent implements OnInit {
 
   }
 
-  loadCountry() {
-    this.country = <CountryData>this.countryService.countryData.find((country:CountryData)=> country.country == this.selectedCountry);
-    this.setForm(this.country)
+  loadCountry(countryName:string) {
+    let country = <CountryData>this.countryService.countryData.find((country:CountryData)=> country.country == countryName);
+    this.setForm(country)
   }
 
   setForm(country:CountryData) {
