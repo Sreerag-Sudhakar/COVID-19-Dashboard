@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // import { HttpClientModule } from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms'
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { SummaryComponent } from './components/summary/summary.component';
@@ -27,7 +27,8 @@ import { CountryService } from './services/country.service';
     CommonModule,
     // HttpClientModule,
     DashboardRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   providers: [
     DashboardService,

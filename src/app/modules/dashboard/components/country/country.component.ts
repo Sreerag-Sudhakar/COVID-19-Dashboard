@@ -9,7 +9,9 @@ import { CountryData } from '../../interfaces/countryData';
 export class CountryComponent implements OnInit {
 
   countries:CountryData[] = []
-  // country:CountryData | undefined;
+  sortKey:string = 'country';
+  searchKey:string = '';
+  countriesData:CountryData[] = []
   constructor(private countryService: CountryService) { }
 
   ngOnInit(): void {
@@ -20,7 +22,30 @@ export class CountryComponent implements OnInit {
     this.countryService.getCountryWiseStatistics().subscribe((data: any) => {
       this.countries = <CountryData[]>data;
       console.log(this.countries)
+      this.countriesData = [...this.countries]
     });  
     
+  }
+
+  sort(sortKey:string){
+    if(sortKey == 'country')
+    this.countries = this.countries.sort((a:any, b:any)=>{
+      return a[sortKey].localeCompare(b[sortKey]);
+    })
+    else
+    this.countries = this.countries.sort((a:any, b:any)=>{
+      return a[sortKey] - b[sortKey];
+    })
+    console.log(this.countries)
+  }
+  search(searchKey:string){
+    console.log('search : ', searchKey, this.countriesData.length)
+    if(searchKey.trim() == '')
+    this.countries = [... this.countriesData]
+    else
+    this.countries = this.countriesData.filter((country:CountryData)=>{
+      return country.country.toLowerCase().includes(searchKey.toLowerCase())
+    })
+    console.log(this.countries)
   }
 }
