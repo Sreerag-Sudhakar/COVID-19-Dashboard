@@ -1,0 +1,49 @@
+<div class="edit-country-container">
+
+    <h1 class="title">Edit {{selectedCountry}}</h1>
+
+    <div class="edit-form">
+        <form name="edit-country-form" (submit)="onSubmit()">
+            
+            <div class="edit-country-form-wrapper">
+                <div class="row">
+                    <div class="col-6 form-floating">
+                        <input type="text" class="form-control" id="cases" placeholder="Cases"
+                             name="cases" autocomplete="off"  required>
+                        <label for="cases">Cases</label> 
+                    </div>
+                    <div class="col-6 form-floating">
+                        <input type="text" class="form-control" id="deaths" placeholder="Deaths"
+                             name="deaths" autocomplete="off"  required>
+                        <label for="deaths">Deaths</label> 
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 form-floating">
+                        <input type="text" class="form-control" id="recovered" placeholder="Recovered"
+                             name="recovered" autocomplete="off"  required>
+                        <label for="recovered">Recovered</label> 
+                    </div>
+                    <div class="col-6 form-floating">
+                        <input type="text" class="form-control" id="tests" placeholder="Tests"
+                             name="tests" autocomplete="off"  required>
+                        <label for="tests">Tests</label> 
+                    </div>
+                </div>
+                
+                
+            </div>
+
+            
+            <div class="btn-container">
+                <span>
+                    <button class="btn btn-light" (click)="onCancel()">Cancel</button>
+                &nbsp;
+                <button class="btn btn-primary" type="submit">Save</button>
+                </span>
+            </div>
+        </form>
+    </div>
+
+</div>

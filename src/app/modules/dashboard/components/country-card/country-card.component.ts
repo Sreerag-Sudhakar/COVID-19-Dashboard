@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CountryData } from '../../interfaces/countryData';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-country-card',
   templateUrl: './country-card.component.html',
@@ -25,9 +25,13 @@ export class CountryCardComponent implements OnInit {
       tests: 0,
       population: 0
     };
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  onEditClick(country:CountryData): void {
+    this.router.navigate(['/dashboard/country/edit', country.country])
   }
 
 }

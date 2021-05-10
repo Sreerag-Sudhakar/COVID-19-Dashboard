@@ -10,10 +10,12 @@ import { DashLayoutComponent } from './components/dash-layout/dash-layout.compon
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CaseCardComponent } from './components/case-card/case-card.component';
 import { CountryCardComponent } from './components/country-card/country-card.component';
+import { EditCountryComponent } from './components/edit-country/edit-country.component';
 
 import { DashboardService } from './services/dashboard.service';
 import { CountryService } from './services/country.service';
 import { MillionPipe } from './pipes/million.pipe';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { MillionPipe } from './pipes/million.pipe';
     DashboardComponent,
     CaseCardComponent,
     CountryCardComponent,
-    MillionPipe
+    MillionPipe,
+    EditCountryComponent
   ],
   imports: [
     CommonModule,
