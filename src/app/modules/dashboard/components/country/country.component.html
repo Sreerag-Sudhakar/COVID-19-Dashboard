@@ -5,10 +5,10 @@
                 <h1 class="title">Country</h1>
             </div>
             <div class="col-3">
-                <input type="text" class="form-control" name="search" placeholder="Search" [(ngModel)]="searchKey" (keyup)="search(searchKey)">
+                <input type="text" class="form-control" name="search" placeholder="Search" [(ngModel)]="searchKey" (keyup)="getResultsByFilters()">
             </div>
             <div class="col-3">
-                <select  class="form-select" name="sort" (change)="sort(sortKey)" [(ngModel)]="sortKey">
+                <select  class="form-select" name="sort" (change)="getResultsByFilters()" [(ngModel)]="sortKey">
                     <option value="country">Country Name</option>
                     <option value="cases">Number of cases</option>
                     <option value="deaths">Number of deaths</option>
@@ -17,7 +17,7 @@
             </div>
             <div class="col-3">
                 <div class="paginate">
-                    <span>{{pager.currentPage}} to {{pager.itemsPerPage}} of {{countriesData.length}}</span>
+                    <span>{{pager.currentPage}} to {{pager.itemsPerPage}} of {{pager.totalItems}}</span>
                     <span>
                         <button class="btn page-btn prev" (click)="previous()">
                             <i class="fas fa-chevron-left"></i>
