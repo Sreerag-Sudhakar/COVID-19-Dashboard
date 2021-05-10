@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { CountryData } from '../../interfaces/countryData'; 
+import { FormBuilder, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-edit-country',
   templateUrl: './edit-country.component.html',
@@ -24,8 +26,31 @@ export class EditCountryComponent implements OnInit {
     tests: 0,
     population: 0
   };
-  selectedCountry:string = '' 
-  constructor(private activatedRoute:ActivatedRoute, private router:Router) { }
+  selectedCountry:string = '' ;
+  
+  editForm = this.fb.group({
+    cases: [null, [Validators.required, Validators.pattern('[0-9]+')]],
+    deaths:  [null, [Validators.required, Validators.pattern('[0-9]+')]],
+    recovered: [null, [Validators.required, Validators.pattern('[0-9]+')]],
+    tests:  [null, [Validators.required, Validators.pattern('[0-9]+')]]
+  });
+
+  submitted:boolean = false;
+
+  get cases(){
+    return this.editForm.get('cases')
+  }
+  get deaths(){
+    return this.editForm.get('deaths')
+  }
+  get recovered(){
+    return this.editForm.get('recovered')
+  }
+  get tests(){
+    return this.editForm.get('tests')
+  }
+  constructor(private activatedRoute:ActivatedRoute, private router:Router,
+    private fb:FormBuilder) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((param:ParamMap)=>{
@@ -35,6 +60,16 @@ export class EditCountryComponent implements OnInit {
   }
 
   onSubmit(){
+    this.submitted = true;
+    if(this.editForm.valid) {
+      // save
+      console.log(this.editForm.value)
+    }
+    else{
+      console.log(this.editForm)
+      //Show errors
+
+    }
 
   }
 

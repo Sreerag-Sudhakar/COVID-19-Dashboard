@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { SummaryComponent } from './components/summary/summary.component';
@@ -33,7 +34,8 @@ import { MillionPipe } from './pipes/million.pipe';
     // HttpClientModule,
     DashboardRoutingModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     DashboardService,
