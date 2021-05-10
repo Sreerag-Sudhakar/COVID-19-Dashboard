@@ -16,11 +16,15 @@
                 </select>
             </div>
             <div class="col-3">
-                <div class="pagination">
-                    <span>1 to 30 of 195</span>
+                <div class="paginate">
+                    <span>{{pager.currentPage}} to {{pager.itemsPerPage}} of {{countriesData.length}}</span>
                     <span>
-                        <button class="page-btn prev">&lt;</button>&nbsp;
-                        <button class="page-btn next">&gt;</button>
+                        <button class="btn page-btn prev" (click)="previous()">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>&nbsp;
+                        <button class="btn page-btn next" (click)="next()">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
                     </span>
                 </div>
             </div>
