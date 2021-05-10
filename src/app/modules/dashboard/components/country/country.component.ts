@@ -9,7 +9,7 @@ import { CountryData } from '../../interfaces/countryData';
 export class CountryComponent implements OnInit {
 
   countries:CountryData[] = []
-  sortKey:string = 'country';
+  sortKey:string = '';
   searchKey:string = '';
   countriesData:CountryData[] = []
   pager = {
@@ -24,17 +24,27 @@ export class CountryComponent implements OnInit {
   }
 
   getCountryWiseStatistics(): void {
+    if(this.countryService.countryData.length == 0)
     this.countryService.getCountryWiseStatistics().subscribe((data: any) => {
       // this.countries = <CountryData[]>data;
-      console.log(this.countries)
+      // console.log(this.countries)
       this.countriesData = [...data]
       this.getResultsByFilters();
-    });  
+      this.countryService.countryData = this.countriesData;
+    });
+    else {
+      this.countriesData = [...this.countryService.countryData]
+      this.getResultsByFilters();
+      this.countryService.countryData = this.countriesData;
+    }
+    
     
   }
 
   sort(sortKey:string, array:CountryData[]): CountryData[]{
     let sortResults:CountryData[] = [];
+    if(sortKey == '')
+    return array;  
     if(sortKey == 'country')
     sortResults = array.sort((a:any, b:any)=>{
       return a[sortKey].localeCompare(b[sortKey]);

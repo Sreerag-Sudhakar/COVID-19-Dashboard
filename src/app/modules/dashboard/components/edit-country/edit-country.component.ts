@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { CountryData } from '../../interfaces/countryData'; 
 import { FormBuilder, Validators } from '@angular/forms';
-
+import { CountryService } from '../../services/country.service'
 @Component({
   selector: 'app-edit-country',
   templateUrl: './edit-country.component.html',
@@ -50,7 +50,7 @@ export class EditCountryComponent implements OnInit {
     return this.editForm.get('tests')
   }
   constructor(private activatedRoute:ActivatedRoute, private router:Router,
-    private fb:FormBuilder) { }
+    private fb:FormBuilder, private countryService:CountryService) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((param:ParamMap)=>{
@@ -62,16 +62,34 @@ export class EditCountryComponent implements OnInit {
   onSubmit(){
     this.submitted = true;
     if(this.editForm.valid) {
-      // save
-      console.log(this.editForm.value)
+      let formData = this.editForm.value;
+      formData.country = this.selectedCountry;
+      let result = this.countryService.editCountry(formData)
+      if(result)
+      this.router.navigate(['/dashboard/country'])
     }
     else{
-      console.log(this.editForm)
-      //Show errors
-
+      // alert('Please fill the fields with proper values')
+  
     }
 
   }
+
+  loadCountry() {
+    this.country = <CountryData>this.countryService.countryData.find((country:CountryData)=> country.country == this.selectedCountry);
+    this.setForm(this.country)
+  }
+
+  setForm(country:CountryData) {
+    this.editForm.setValue({
+      cases :country.cases,
+      deaths :country.deaths,
+      recovered :country.recovered,
+      tests :country.tests
+    })
+    this.editForm.updateValueAndValidity();
+  }
+
 
   onCancel() {
     this.router.navigate(['/dashboard/country'])
