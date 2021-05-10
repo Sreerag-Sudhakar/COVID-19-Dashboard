@@ -13,6 +13,7 @@ import { CountryCardComponent } from './components/country-card/country-card.com
 
 import { DashboardService } from './services/dashboard.service';
 import { CountryService } from './services/country.service';
+import { MillionPipe } from './pipes/million.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CountryService } from './services/country.service';
     DashLayoutComponent,
     DashboardComponent,
     CaseCardComponent,
-    CountryCardComponent
+    CountryCardComponent,
+    MillionPipe
   ],
   imports: [
     CommonModule,
