@@ -44,6 +44,9 @@ app-country-card {
     padding: 20px 0;
 }
 
+.country-card .body .row h3:first-child {
+    font-weight: 200;
+}
 .country-card .body h3{
     color: #272727;
 }

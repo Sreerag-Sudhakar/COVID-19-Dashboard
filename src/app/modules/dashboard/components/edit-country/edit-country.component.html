@@ -11,7 +11,7 @@
                         <input type="text" class="form-control" id="cases" placeholder="Cases"
                              name="cases" autocomplete="off"  formControlName="cases"  pattern="[0-9]+" required>
                         <label for="cases">Cases</label> 
-                        <div *ngIf="submitted && cases?.errors && (cases?.touched || cases?.dirty)"  class="validation-error">
+                        <div *ngIf="submitted && cases?.errors || (cases?.touched || cases?.dirty)"  class="validation-error">
                             <p class="text-danger"
                             *ngIf="cases?.hasError('required')">
                             This field is required.
@@ -26,7 +26,7 @@
                         <input type="text" class="form-control" id="deaths" placeholder="Deaths"
                              name="deaths" autocomplete="off" formControlName="deaths"  pattern="[0-9]+" required>
                         <label for="deaths">Deaths</label> 
-                        <div *ngIf="submitted && deaths?.errors && (deaths?.touched || deaths?.dirty)"  class="validation-error">
+                        <div *ngIf="submitted && deaths?.errors || (deaths?.touched || deaths?.dirty)"  class="validation-error">
                             <p class="text-danger"
                             *ngIf="deaths?.hasError('required')">
                             This field is required.
@@ -44,7 +44,7 @@
                         <input type="text" class="form-control" id="recovered" placeholder="Recovered"
                              name="recovered" autocomplete="off"  formControlName="recovered"  pattern="[0-9]+" required>
                         <label for="recovered">Recovered</label> 
-                        <div *ngIf="submitted && recovered?.errors && (recovered?.touched || recovered?.dirty)"  class="validation-error">
+                        <div *ngIf="submitted && recovered?.errors || (recovered?.touched || recovered?.dirty)"  class="validation-error">
                             <p class="text-danger"
                             *ngIf="recovered?.hasError('required')">
                             This field is required.
@@ -59,7 +59,7 @@
                         <input type="text" class="form-control" id="tests" placeholder="Tests"
                              name="tests" autocomplete="off"  formControlName="tests"  pattern="[0-9]+" required>
                         <label for="tests">Tests</label> 
-                        <div *ngIf="submitted && tests?.errors && (tests?.touched || tests?.dirty)" class="validation-error">
+                        <div *ngIf="submitted && tests?.errors || (tests?.touched || tests?.dirty)" class="validation-error">
                             <p class="text-danger"
                             *ngIf="tests?.hasError('required')">
                             This field is required.

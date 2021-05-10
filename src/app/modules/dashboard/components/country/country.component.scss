@@ -12,11 +12,14 @@
 .country-cards-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    // justify-content: space-between;
     padding: 50px 0;
 }
-.country-cards-wrapper .header {
 
+
+.country-cards-wrapper > app-country-card{
+    flex: 1 0 21%; /* explanation below */
+    margin: 5px;
 }
 
 .country-cards-wrapper .body {
