@@ -33,45 +33,37 @@ export class CountryComponent implements OnInit {
     
   }
 
-  sort(sortKey:string){
+  sort(sortKey:string, array:CountryData[]): CountryData[]{
+    let sortResults:CountryData[] = [];
     if(sortKey == 'country')
-    this.countries = this.countries.sort((a:any, b:any)=>{
+    sortResults = array.sort((a:any, b:any)=>{
       return a[sortKey].localeCompare(b[sortKey]);
     })
     else
-    this.countries = this.countries.sort((a:any, b:any)=>{
+    sortResults = array.sort((a:any, b:any)=>{
       return a[sortKey] - b[sortKey];
     })
-    console.log(this.countries)
+    return sortResults;
   }
-  search(searchKey:string){
-    console.log('search : ', searchKey, this.countriesData.length)
-    if(searchKey.trim() == '')
-    this.countries = [... this.countriesData]
-    else
-    this.countries = this.countriesData.filter((country:CountryData)=>{
+  search(searchKey:string): CountryData[]{
+    let searchResults:CountryData[] = [];
+    searchResults = this.countriesData.filter((country:CountryData)=>{
       return country.country.toLowerCase().includes(searchKey.toLowerCase())
     })
-    console.log(this.countries)
+    return searchResults;
   }
 
   getResultsByFilters() {
     let results:CountryData[] = [... this.countriesData];
+    //Apply search
     if(this.searchKey.trim()) {
-      results = this.countriesData.filter((country:CountryData)=>{
-        return country.country.toLowerCase().includes(this.searchKey.toLowerCase())
-      })
+      results = this.search(this.searchKey);
     }
+    //Updating the total count
     this.pager.totalItems = results.length;
+    //Apply sort
     if(this.sortKey){
-      if(this.sortKey == 'country')
-      results = results.sort((a:any, b:any)=>{
-        return a[this.sortKey].localeCompare(b[this.sortKey]);
-      })
-      else
-      results = results.sort((a:any, b:any)=>{
-        return a[this.sortKey] - b[this.sortKey];
-      })
+      results = this.sort(this.sortKey, results)
     }
 
     let startIndex = (this.pager.currentPage - 1) * this.pager.itemsPerPage;
